@@ -12,6 +12,9 @@ You can orbit the camera around the cube holding the right mouse button. Zoom in
 
 When the cube is solved, the countdown is elapsed or you hit the button "Give up" the game ends and you can start over with a new configuration or exit the game.
 
+## Builds
+Builds are put in the [Binary](https://github.com/georgmarth/Rubiks/tree/master/Binary/) folder.
+
 ## Unity Version
 
 - Made with Unity Version 2017.2.03f
