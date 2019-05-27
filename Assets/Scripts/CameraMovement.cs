@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.PostProcessing;
-
+﻿using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class CameraMovement : MonoBehaviour {
     
@@ -22,11 +19,11 @@ public class CameraMovement : MonoBehaviour {
     public float cameraOffsetY = 0.5f;
     public LayerMask wallCollisionCheckMask;
 
+    public PostProcessVolume volume;
+
     // Variable to reduce unnecessary updates
     [UnityEngine.HideInInspector]
     public bool movedThisFrame;
-
-    private PostProcessingBehaviour post;
 
     private float x = 0f;
     private float y = 0f;
@@ -38,7 +35,6 @@ public class CameraMovement : MonoBehaviour {
         x = angles.y;
         y = angles.x;
 
-        post = GetComponent<PostProcessingBehaviour>();
         SetDepthofFieldFocus();
         
 	}
@@ -90,9 +86,8 @@ public class CameraMovement : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, 100f, dofFocusMask))
         {
-            DepthOfFieldModel.Settings settings = post.profile.depthOfField.settings;
-            settings.focusDistance = hit.distance;
-            post.profile.depthOfField.settings = settings;
+            DepthOfField settings = volume.profile.GetSetting<DepthOfField>();
+            settings.focusDistance.value = hit.distance;
         }
     }
 }
