@@ -14,8 +14,7 @@ When the cube is solved, the countdown is elapsed or you hit the button "Give up
 
 ## Unity Version
 
-- Made with Unity Version 2017.2.03f
-- Asset Store Items Include Standard Assets, Text Mesh Pro and Post Processing Stack.
+- Made with Unity Version 2019.1.4f1
 - Sound assets are taken from https://freesound.org/
 
 Everything else is made by me.
